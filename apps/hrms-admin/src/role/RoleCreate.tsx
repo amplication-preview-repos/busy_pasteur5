@@ -25,6 +25,7 @@ export const RoleCreate = (props: CreateProps): React.ReactElement => {
           <SelectArrayInput optionText={EmployeeTitle} />
         </ReferenceArrayInput>
         <NumberInput step={1} label="leaveBalance" source="leaveBalance" />
+        <TextInput label="name" source="name" />
         <TextInput label="roleName" source="roleName" />
       </SimpleForm>
     </Create>

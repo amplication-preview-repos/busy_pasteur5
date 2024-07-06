@@ -74,6 +74,17 @@ class LeaveTypeWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
+  typeField?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
   typeName?: StringNullableFilter;
 }
 

@@ -8,5 +8,6 @@ export type LeaveTypeWhereInput = {
   id?: StringFilter;
   leaveApplications?: LeaveApplicationListRelationFilter;
   leaveDescription?: StringNullableFilter;
+  typeField?: StringNullableFilter;
   typeName?: StringNullableFilter;
 };

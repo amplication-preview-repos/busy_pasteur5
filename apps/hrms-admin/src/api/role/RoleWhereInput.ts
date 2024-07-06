@@ -7,5 +7,6 @@ export type RoleWhereInput = {
   employees?: EmployeeListRelationFilter;
   id?: StringFilter;
   leaveBalance?: IntNullableFilter;
+  name?: StringNullableFilter;
   roleName?: StringNullableFilter;
 };

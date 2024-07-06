@@ -6,6 +6,7 @@ export type LeaveType = {
   id: string;
   leaveApplications?: Array<LeaveApplication>;
   leaveDescription: string | null;
+  typeField: string | null;
   typeName: string | null;
   updatedAt: Date;
 };

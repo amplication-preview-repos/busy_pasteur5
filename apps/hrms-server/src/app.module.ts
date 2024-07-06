@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
-import { RoleModule } from "./role/role.module";
 import { EmployeeModule } from "./employee/employee.module";
+import { RoleModule } from "./role/role.module";
 import { LeaveTypeModule } from "./leaveType/leaveType.module";
 import { LeaveApplicationModule } from "./leaveApplication/leaveApplication.module";
 import { AuditModule } from "./audit/audit.module";
@@ -16,8 +16,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 @Module({
   controllers: [],
   imports: [
-    RoleModule,
     EmployeeModule,
+    RoleModule,
     LeaveTypeModule,
     LeaveApplicationModule,
     AuditModule,

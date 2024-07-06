@@ -5,14 +5,14 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
-import { RoleList } from "./role/RoleList";
-import { RoleCreate } from "./role/RoleCreate";
-import { RoleEdit } from "./role/RoleEdit";
-import { RoleShow } from "./role/RoleShow";
 import { EmployeeList } from "./employee/EmployeeList";
 import { EmployeeCreate } from "./employee/EmployeeCreate";
 import { EmployeeEdit } from "./employee/EmployeeEdit";
 import { EmployeeShow } from "./employee/EmployeeShow";
+import { RoleList } from "./role/RoleList";
+import { RoleCreate } from "./role/RoleCreate";
+import { RoleEdit } from "./role/RoleEdit";
+import { RoleShow } from "./role/RoleShow";
 import { LeaveTypeList } from "./leaveType/LeaveTypeList";
 import { LeaveTypeCreate } from "./leaveType/LeaveTypeCreate";
 import { LeaveTypeEdit } from "./leaveType/LeaveTypeEdit";
@@ -52,18 +52,18 @@ const App = (): React.ReactElement => {
         loginPage={Login}
       >
         <Resource
-          name="Role"
-          list={RoleList}
-          edit={RoleEdit}
-          create={RoleCreate}
-          show={RoleShow}
-        />
-        <Resource
           name="Employee"
           list={EmployeeList}
           edit={EmployeeEdit}
           create={EmployeeCreate}
           show={EmployeeShow}
+        />
+        <Resource
+          name="Role"
+          list={RoleList}
+          edit={RoleEdit}
+          create={RoleCreate}
+          show={RoleShow}
         />
         <Resource
           name="LeaveType"

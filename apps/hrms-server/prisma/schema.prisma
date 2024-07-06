@@ -7,15 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Role {
-  createdAt    DateTime   @default(now())
-  employees    Employee[]
-  id           String     @id @default(cuid())
-  leaveBalance Int?
-  roleName     String?
-  updatedAt    DateTime   @updatedAt
-}
-
 model Employee {
   createdAt         DateTime           @default(now())
   dateOfBirth       DateTime?
@@ -30,12 +21,23 @@ model Employee {
   updatedAt         DateTime           @updatedAt
 }
 
+model Role {
+  createdAt    DateTime   @default(now())
+  employees    Employee[]
+  id           String     @id @default(cuid())
+  leaveBalance Int?
+  name         String?
+  roleName     String?
+  updatedAt    DateTime   @updatedAt
+}
+
 model LeaveType {
   active            Boolean?
   createdAt         DateTime           @default(now())
   id                String             @id @default(cuid())
   leaveApplications LeaveApplication[]
   leaveDescription  String?
+  typeField         String?
   typeName          String?
   updatedAt         DateTime           @updatedAt
 }
@@ -44,6 +46,7 @@ model LeaveApplication {
   createdAt      DateTime                    @default(now())
   employee       Employee?                   @relation(fields: [employeeId], references: [id])
   employeeId     String?
+  employeeId     Int?
   endDate        DateTime?
   id             String                      @id @default(cuid())
   justification  String?
@@ -56,6 +59,7 @@ model LeaveApplication {
 }
 
 model Audit {
+  action    String?
   createdAt DateTime @default(now())
   id        String   @id @default(cuid())
   newValue  Json?

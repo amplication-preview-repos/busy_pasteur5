@@ -3,6 +3,7 @@ import { LeaveTypeWhereUniqueInput } from "../leaveType/LeaveTypeWhereUniqueInpu
 
 export type LeaveApplicationUpdateInput = {
   employee?: EmployeeWhereUniqueInput | null;
+  employeeId?: number | null;
   endDate?: Date | null;
   justification?: string | null;
   leaveType?: LeaveTypeWhereUniqueInput | null;

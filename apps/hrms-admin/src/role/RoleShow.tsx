@@ -20,6 +20,7 @@ export const RoleShow = (props: ShowProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
         <TextField label="leaveBalance" source="leaveBalance" />
+        <TextField label="name" source="name" />
         <TextField label="roleName" source="roleName" />
         <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField

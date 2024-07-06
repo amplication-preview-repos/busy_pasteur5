@@ -82,6 +82,18 @@ class LeaveType {
   @Field(() => String, {
     nullable: true,
   })
+  typeField!: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @MaxLength(1000)
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
   typeName!: string | null;
 
   @ApiProperty({

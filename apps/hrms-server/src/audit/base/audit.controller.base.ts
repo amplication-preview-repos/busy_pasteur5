@@ -31,6 +31,7 @@ export class AuditControllerBase {
     return await this.service.createAudit({
       data: data,
       select: {
+        action: true,
         createdAt: true,
         id: true,
         newValue: true,
@@ -49,6 +50,7 @@ export class AuditControllerBase {
     return this.service.audits({
       ...args,
       select: {
+        action: true,
         createdAt: true,
         id: true,
         newValue: true,
@@ -68,6 +70,7 @@ export class AuditControllerBase {
     const result = await this.service.audit({
       where: params,
       select: {
+        action: true,
         createdAt: true,
         id: true,
         newValue: true,
@@ -96,6 +99,7 @@ export class AuditControllerBase {
         where: params,
         data: data,
         select: {
+          action: true,
           createdAt: true,
           id: true,
           newValue: true,
@@ -124,6 +128,7 @@ export class AuditControllerBase {
       return await this.service.deleteAudit({
         where: params,
         select: {
+          action: true,
           createdAt: true,
           id: true,
           newValue: true,

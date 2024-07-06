@@ -50,6 +50,17 @@ class LeaveApplicationOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  employeeId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   endDate?: SortOrder;
 
   @ApiProperty({

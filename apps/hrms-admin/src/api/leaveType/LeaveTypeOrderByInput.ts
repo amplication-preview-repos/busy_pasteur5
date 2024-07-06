@@ -5,6 +5,7 @@ export type LeaveTypeOrderByInput = {
   createdAt?: SortOrder;
   id?: SortOrder;
   leaveDescription?: SortOrder;
+  typeField?: SortOrder;
   typeName?: SortOrder;
   updatedAt?: SortOrder;
 };

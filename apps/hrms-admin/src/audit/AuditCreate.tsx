@@ -5,6 +5,7 @@ export const AuditCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
+        <TextInput label="Action" source="action" />
         <div />
         <div />
         <TextInput label="updatedBy" source="updatedBy" />

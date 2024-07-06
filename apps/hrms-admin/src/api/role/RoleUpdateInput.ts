@@ -3,5 +3,6 @@ import { EmployeeUpdateManyWithoutRolesInput } from "./EmployeeUpdateManyWithout
 export type RoleUpdateInput = {
   employees?: EmployeeUpdateManyWithoutRolesInput;
   leaveBalance?: number | null;
+  name?: string | null;
   roleName?: string | null;
 };

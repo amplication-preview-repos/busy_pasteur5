@@ -226,6 +226,7 @@ export class EmployeeControllerBase {
           },
         },
 
+        employeeId: true,
         endDate: true,
         id: true,
         justification: true,

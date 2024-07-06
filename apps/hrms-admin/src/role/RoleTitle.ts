@@ -1,7 +1,7 @@
 import { Role as TRole } from "../api/role/Role";
 
-export const ROLE_TITLE_FIELD = "roleName";
+export const ROLE_TITLE_FIELD = "name";
 
 export const RoleTitle = (record: TRole): string => {
-  return record.roleName?.toString() || String(record.id);
+  return record.name?.toString() || String(record.id);
 };

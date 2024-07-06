@@ -56,6 +56,7 @@ export class LeaveApplicationControllerBase {
           },
         },
 
+        employeeId: true,
         endDate: true,
         id: true,
         justification: true,
@@ -92,6 +93,7 @@ export class LeaveApplicationControllerBase {
           },
         },
 
+        employeeId: true,
         endDate: true,
         id: true,
         justification: true,
@@ -127,6 +129,7 @@ export class LeaveApplicationControllerBase {
           },
         },
 
+        employeeId: true,
         endDate: true,
         id: true,
         justification: true,
@@ -185,6 +188,7 @@ export class LeaveApplicationControllerBase {
             },
           },
 
+          employeeId: true,
           endDate: true,
           id: true,
           justification: true,
@@ -229,6 +233,7 @@ export class LeaveApplicationControllerBase {
             },
           },
 
+          employeeId: true,
           endDate: true,
           id: true,
           justification: true,

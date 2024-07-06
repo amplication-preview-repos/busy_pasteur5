@@ -3,5 +3,6 @@ import { EmployeeCreateNestedManyWithoutRolesInput } from "./EmployeeCreateNeste
 export type RoleCreateInput = {
   employees?: EmployeeCreateNestedManyWithoutRolesInput;
   leaveBalance?: number | null;
+  name?: string | null;
   roleName?: string | null;
 };

@@ -29,6 +29,7 @@ export const LeaveApplicationList = (props: ListProps): React.ReactElement => {
         >
           <TextField source={EMPLOYEE_TITLE_FIELD} />
         </ReferenceField>
+        <TextField label="employeeId" source="employeeId" />
         <TextField label="endDate" source="endDate" />
         <TextField label="ID" source="id" />
         <TextField label="justification" source="justification" />

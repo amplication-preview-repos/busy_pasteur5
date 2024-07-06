@@ -23,6 +23,7 @@ export const LeaveTypeList = (props: ListProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
         <TextField label="leaveDescription" source="leaveDescription" />
+        <TextField label="type" source="typeField" />
         <TextField label="typeName" source="typeName" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>

@@ -63,6 +63,17 @@ class RoleWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
+  name?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
   roleName?: StringNullableFilter;
 }
 

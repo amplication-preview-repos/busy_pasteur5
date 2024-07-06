@@ -18,12 +18,14 @@ import { AuditService } from "../audit.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  action: "exampleAction",
   createdAt: new Date(),
   id: "exampleId",
   updatedAt: new Date(),
   updatedBy: "exampleUpdatedBy",
 };
 const CREATE_RESULT = {
+  action: "exampleAction",
   createdAt: new Date(),
   id: "exampleId",
   updatedAt: new Date(),
@@ -31,6 +33,7 @@ const CREATE_RESULT = {
 };
 const FIND_MANY_RESULT = [
   {
+    action: "exampleAction",
     createdAt: new Date(),
     id: "exampleId",
     updatedAt: new Date(),
@@ -38,6 +41,7 @@ const FIND_MANY_RESULT = [
   },
 ];
 const FIND_ONE_RESULT = {
+  action: "exampleAction",
   createdAt: new Date(),
   id: "exampleId",
   updatedAt: new Date(),

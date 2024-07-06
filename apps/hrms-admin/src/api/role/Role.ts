@@ -5,6 +5,7 @@ export type Role = {
   employees?: Array<Employee>;
   id: string;
   leaveBalance: number | null;
+  name: string | null;
   roleName: string | null;
   updatedAt: Date;
 };

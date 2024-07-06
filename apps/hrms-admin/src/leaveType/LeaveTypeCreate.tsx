@@ -30,6 +30,7 @@ export const LeaveTypeCreate = (props: CreateProps): React.ReactElement => {
           multiline
           source="leaveDescription"
         />
+        <TextInput label="type" source="typeField" />
         <TextInput label="typeName" source="typeName" />
       </SimpleForm>
     </Create>

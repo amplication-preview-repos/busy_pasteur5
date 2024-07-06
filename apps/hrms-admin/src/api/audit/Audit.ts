@@ -1,6 +1,7 @@
 import { JsonValue } from "type-fest";
 
 export type Audit = {
+  action: string | null;
   createdAt: Date;
   id: string;
   newValue: JsonValue;
