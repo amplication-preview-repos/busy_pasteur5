@@ -1,0 +1,69 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Role {
+  createdAt    DateTime   @default(now())
+  employees    Employee[]
+  id           String     @id @default(cuid())
+  leaveBalance Int?
+  roleName     String?
+  updatedAt    DateTime   @updatedAt
+}
+
+model Employee {
+  createdAt         DateTime           @default(now())
+  dateOfBirth       DateTime?
+  email             String?
+  firstName         String?
+  id                String             @id @default(cuid())
+  lastName          String?
+  leaveApplications LeaveApplication[]
+  manager           String?
+  role              Role?              @relation(fields: [roleId], references: [id])
+  roleId            String?
+  updatedAt         DateTime           @updatedAt
+}
+
+model LeaveType {
+  active            Boolean?
+  createdAt         DateTime           @default(now())
+  id                String             @id @default(cuid())
+  leaveApplications LeaveApplication[]
+  leaveDescription  String?
+  typeName          String?
+  updatedAt         DateTime           @updatedAt
+}
+
+model LeaveApplication {
+  createdAt      DateTime                    @default(now())
+  employee       Employee?                   @relation(fields: [employeeId], references: [id])
+  employeeId     String?
+  endDate        DateTime?
+  id             String                      @id @default(cuid())
+  justification  String?
+  leaveType      LeaveType?                  @relation(fields: [leaveTypeId], references: [id])
+  leaveTypeId    String?
+  managerComment String?
+  startDate      DateTime?
+  status         EnumLeaveApplicationStatus?
+  updatedAt      DateTime                    @updatedAt
+}
+
+model Audit {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  newValue  Json?
+  oldValue  Json?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+enum EnumLeaveApplicationStatus {
+  Option1
+}
