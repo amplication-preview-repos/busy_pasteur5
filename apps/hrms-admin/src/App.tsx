@@ -5,14 +5,14 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
-import { EmployeeList } from "./employee/EmployeeList";
-import { EmployeeCreate } from "./employee/EmployeeCreate";
-import { EmployeeEdit } from "./employee/EmployeeEdit";
-import { EmployeeShow } from "./employee/EmployeeShow";
 import { RoleList } from "./role/RoleList";
 import { RoleCreate } from "./role/RoleCreate";
 import { RoleEdit } from "./role/RoleEdit";
 import { RoleShow } from "./role/RoleShow";
+import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeCreate } from "./employee/EmployeeCreate";
+import { EmployeeEdit } from "./employee/EmployeeEdit";
+import { EmployeeShow } from "./employee/EmployeeShow";
 import { LeaveTypeList } from "./leaveType/LeaveTypeList";
 import { LeaveTypeCreate } from "./leaveType/LeaveTypeCreate";
 import { LeaveTypeEdit } from "./leaveType/LeaveTypeEdit";
@@ -25,6 +25,14 @@ import { AuditList } from "./audit/AuditList";
 import { AuditCreate } from "./audit/AuditCreate";
 import { AuditEdit } from "./audit/AuditEdit";
 import { AuditShow } from "./audit/AuditShow";
+import { UserLoginList } from "./userLogin/UserLoginList";
+import { UserLoginCreate } from "./userLogin/UserLoginCreate";
+import { UserLoginEdit } from "./userLogin/UserLoginEdit";
+import { UserLoginShow } from "./userLogin/UserLoginShow";
+import { UserMasterList } from "./userMaster/UserMasterList";
+import { UserMasterCreate } from "./userMaster/UserMasterCreate";
+import { UserMasterEdit } from "./userMaster/UserMasterEdit";
+import { UserMasterShow } from "./userMaster/UserMasterShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -52,18 +60,18 @@ const App = (): React.ReactElement => {
         loginPage={Login}
       >
         <Resource
-          name="Employee"
-          list={EmployeeList}
-          edit={EmployeeEdit}
-          create={EmployeeCreate}
-          show={EmployeeShow}
-        />
-        <Resource
           name="Role"
           list={RoleList}
           edit={RoleEdit}
           create={RoleCreate}
           show={RoleShow}
+        />
+        <Resource
+          name="Employee"
+          list={EmployeeList}
+          edit={EmployeeEdit}
+          create={EmployeeCreate}
+          show={EmployeeShow}
         />
         <Resource
           name="LeaveType"
@@ -85,6 +93,20 @@ const App = (): React.ReactElement => {
           edit={AuditEdit}
           create={AuditCreate}
           show={AuditShow}
+        />
+        <Resource
+          name="UserLogin"
+          list={UserLoginList}
+          edit={UserLoginEdit}
+          create={UserLoginCreate}
+          show={UserLoginShow}
+        />
+        <Resource
+          name="UserMaster"
+          list={UserMasterList}
+          edit={UserMasterEdit}
+          create={UserMasterCreate}
+          show={UserMasterShow}
         />
       </Admin>
     </div>

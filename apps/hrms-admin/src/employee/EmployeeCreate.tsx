@@ -32,7 +32,7 @@ export const EmployeeCreate = (props: CreateProps): React.ReactElement => {
           <SelectArrayInput optionText={LeaveApplicationTitle} />
         </ReferenceArrayInput>
         <TextInput label="manager" source="manager" />
-        <ReferenceInput source="role.id" reference="Role" label="role">
+        <ReferenceInput source="role.id" reference="Role" label="Role">
           <SelectInput optionText={RoleTitle} />
         </ReferenceInput>
       </SimpleForm>

@@ -7,6 +7,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Role {
+  createdAt    DateTime   @default(now())
+  employees    Employee[]
+  id           String     @id @default(cuid())
+  leaveBalance Int?
+  name         String?
+  roleName     String?
+  updatedAt    DateTime   @updatedAt
+}
+
 model Employee {
   createdAt         DateTime           @default(now())
   dateOfBirth       DateTime?
@@ -19,16 +29,6 @@ model Employee {
   role              Role?              @relation(fields: [roleId], references: [id])
   roleId            String?
   updatedAt         DateTime           @updatedAt
-}
-
-model Role {
-  createdAt    DateTime   @default(now())
-  employees    Employee[]
-  id           String     @id @default(cuid())
-  leaveBalance Int?
-  name         String?
-  roleName     String?
-  updatedAt    DateTime   @updatedAt
 }
 
 model LeaveType {
@@ -46,7 +46,6 @@ model LeaveApplication {
   createdAt      DateTime                    @default(now())
   employee       Employee?                   @relation(fields: [employeeId], references: [id])
   employeeId     String?
-  employeeId     Int?
   endDate        DateTime?
   id             String                      @id @default(cuid())
   justification  String?
@@ -68,6 +67,30 @@ model Audit {
   updatedBy String?
 }
 
+model UserLogin {
+  createdAt    DateTime    @default(now())
+  id           String      @id @default(cuid())
+  password     String?
+  updatedAt    DateTime    @updatedAt
+  userId       String?
+  userMaster   UserMaster? @relation(fields: [userMasterId], references: [id])
+  userMasterId String?
+  username     String?
+  userType     String?
+}
+
+model UserMaster {
+  createdAt  DateTime                @default(now())
+  id         String                  @id @default(cuid())
+  updatedAt  DateTime                @updatedAt
+  userLogins UserLogin[]
+  userType   EnumUserMasterUserType?
+}
+
 enum EnumLeaveApplicationStatus {
+  Option1
+}
+
+enum EnumUserMasterUserType {
   Option1
 }

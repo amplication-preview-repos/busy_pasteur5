@@ -36,7 +36,7 @@ export const RoleShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <TextField label="lastName" source="lastName" />
             <TextField label="manager" source="manager" />
-            <ReferenceField label="role" source="role.id" reference="Role">
+            <ReferenceField label="Role" source="role.id" reference="Role">
               <TextField source={ROLE_TITLE_FIELD} />
             </ReferenceField>
             <DateField source="updatedAt" label="Updated At" />

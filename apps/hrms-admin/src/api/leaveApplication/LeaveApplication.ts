@@ -4,7 +4,6 @@ import { LeaveType } from "../leaveType/LeaveType";
 export type LeaveApplication = {
   createdAt: Date;
   employee?: Employee | null;
-  employeeId: number | null;
   endDate: Date | null;
   id: string;
   justification: string | null;

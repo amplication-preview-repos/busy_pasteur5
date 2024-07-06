@@ -12,19 +12,14 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { EmployeeWhereUniqueInput } from "../../employee/base/EmployeeWhereUniqueInput";
-
 import {
   ValidateNested,
   IsOptional,
-  IsInt,
-  Min,
-  Max,
   IsDate,
   IsString,
   MaxLength,
   IsEnum,
 } from "class-validator";
-
 import { Type } from "class-transformer";
 import { LeaveTypeWhereUniqueInput } from "../../leaveType/base/LeaveTypeWhereUniqueInput";
 import { EnumLeaveApplicationStatus } from "./EnumLeaveApplicationStatus";
@@ -42,19 +37,6 @@ class LeaveApplicationUpdateInput {
     nullable: true,
   })
   employee?: EmployeeWhereUniqueInput | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  employeeId?: number | null;
 
   @ApiProperty({
     required: false,

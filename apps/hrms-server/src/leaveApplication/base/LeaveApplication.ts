@@ -11,19 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-
 import {
   IsDate,
   ValidateNested,
   IsOptional,
-  IsInt,
-  Min,
-  Max,
   IsString,
   MaxLength,
   IsEnum,
 } from "class-validator";
-
 import { Type } from "class-transformer";
 import { Employee } from "../../employee/base/Employee";
 import { LeaveType } from "../../leaveType/base/LeaveType";
@@ -47,19 +42,6 @@ class LeaveApplication {
   @Type(() => Employee)
   @IsOptional()
   employee?: Employee | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @Min(-999999999)
-  @Max(999999999)
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  employeeId!: number | null;
 
   @ApiProperty({
     required: false,

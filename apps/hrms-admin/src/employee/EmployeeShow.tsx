@@ -26,7 +26,7 @@ export const EmployeeShow = (props: ShowProps): React.ReactElement => {
         <TextField label="ID" source="id" />
         <TextField label="lastName" source="lastName" />
         <TextField label="manager" source="manager" />
-        <ReferenceField label="role" source="role.id" reference="Role">
+        <ReferenceField label="Role" source="role.id" reference="Role">
           <TextField source={ROLE_TITLE_FIELD} />
         </ReferenceField>
         <DateField source="updatedAt" label="Updated At" />
@@ -44,12 +44,11 @@ export const EmployeeShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={EMPLOYEE_TITLE_FIELD} />
             </ReferenceField>
-            <TextField label="employeeId" source="employeeId" />
             <TextField label="endDate" source="endDate" />
             <TextField label="ID" source="id" />
             <TextField label="justification" source="justification" />
             <ReferenceField
-              label="leaveType"
+              label="LeaveType"
               source="leavetype.id"
               reference="LeaveType"
             >

@@ -170,7 +170,6 @@ export class LeaveTypeControllerBase {
           },
         },
 
-        employeeId: true,
         endDate: true,
         id: true,
         justification: true,

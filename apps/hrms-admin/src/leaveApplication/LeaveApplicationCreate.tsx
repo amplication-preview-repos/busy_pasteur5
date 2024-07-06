@@ -6,7 +6,6 @@ import {
   CreateProps,
   ReferenceInput,
   SelectInput,
-  NumberInput,
   DateTimeInput,
   TextInput,
 } from "react-admin";
@@ -27,13 +26,12 @@ export const LeaveApplicationCreate = (
         >
           <SelectInput optionText={EmployeeTitle} />
         </ReferenceInput>
-        <NumberInput step={1} label="employeeId" source="employeeId" />
         <DateTimeInput label="endDate" source="endDate" />
         <TextInput label="justification" multiline source="justification" />
         <ReferenceInput
           source="leaveType.id"
           reference="LeaveType"
-          label="leaveType"
+          label="LeaveType"
         >
           <SelectInput optionText={LeaveTypeTitle} />
         </ReferenceInput>
