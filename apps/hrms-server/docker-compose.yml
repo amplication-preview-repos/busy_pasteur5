@@ -9,7 +9,7 @@ services:
       - ${PORT}:3000
     environment:
       BCRYPT_SALT: ${BCRYPT_SALT}
-      DB_URL: postgres://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      DB_URL: mysql://${DB_USER}:${DB_PASSWORD}@db:3306/${DB_NAME}
     depends_on:
       - migrate
     restart: on-failure
@@ -22,26 +22,40 @@ services:
     working_dir: /app/server
     environment:
       BCRYPT_SALT: ${BCRYPT_SALT}
-      DB_URL: postgres://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
+      DB_URL: mysql://${DB_USER}:${DB_PASSWORD}@db:3306/${DB_NAME}
     depends_on:
       db:
         condition: service_healthy
   db:
-    image: postgres:12
+    image: mysql:8.3
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT}:3306
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres:/var/lib/postgresql/data
     healthcheck:
       test:
-        - CMD-SHELL
-        - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+        - CMD
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u
+        - ${DB_USER}
       timeout: 45s
       interval: 10s
       retries: 10
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 1234:8080
 volumes:
   postgres: ~
+  mysql: ~
