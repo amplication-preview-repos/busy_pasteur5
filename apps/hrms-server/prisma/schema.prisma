@@ -1,0 +1,96 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Role {
+  createdAt    DateTime   @default(now())
+  employees    Employee[]
+  id           String     @id @default(cuid())
+  leaveBalance Int?
+  name         String?
+  roleName     String?
+  updatedAt    DateTime   @updatedAt
+}
+
+model Employee {
+  createdAt         DateTime           @default(now())
+  dateOfBirth       DateTime?
+  email             String?
+  firstName         String?
+  id                String             @id @default(cuid())
+  lastName          String?
+  leaveApplications LeaveApplication[]
+  manager           String?
+  role              Role?              @relation(fields: [roleId], references: [id])
+  roleId            String?
+  updatedAt         DateTime           @updatedAt
+}
+
+model LeaveType {
+  active            Boolean?
+  createdAt         DateTime           @default(now())
+  id                String             @id @default(cuid())
+  leaveApplications LeaveApplication[]
+  leaveDescription  String?
+  typeField         String?
+  typeName          String?
+  updatedAt         DateTime           @updatedAt
+}
+
+model LeaveApplication {
+  createdAt      DateTime                    @default(now())
+  employee       Employee?                   @relation(fields: [employeeId], references: [id])
+  employeeId     String?
+  endDate        DateTime?
+  id             String                      @id @default(cuid())
+  justification  String?
+  leaveType      LeaveType?                  @relation(fields: [leaveTypeId], references: [id])
+  leaveTypeId    String?
+  managerComment String?
+  startDate      DateTime?
+  status         EnumLeaveApplicationStatus?
+  updatedAt      DateTime                    @updatedAt
+}
+
+model Audit {
+  action    String?
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  newValue  Json?
+  oldValue  Json?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+model UserLogin {
+  createdAt    DateTime    @default(now())
+  id           String      @id @default(cuid())
+  password     String?
+  updatedAt    DateTime    @updatedAt
+  userId       String?
+  userMaster   UserMaster? @relation(fields: [userMasterId], references: [id])
+  userMasterId String?
+  username     String?
+  userType     String?
+}
+
+model UserMaster {
+  createdAt  DateTime                @default(now())
+  id         String                  @id @default(cuid())
+  updatedAt  DateTime                @updatedAt
+  userLogins UserLogin[]
+  userType   EnumUserMasterUserType?
+}
+
+enum EnumLeaveApplicationStatus {
+  Option1
+}
+
+enum EnumUserMasterUserType {
+  Option1
+}
